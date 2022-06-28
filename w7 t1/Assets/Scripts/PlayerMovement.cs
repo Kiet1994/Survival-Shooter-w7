@@ -45,8 +45,4 @@ public class PlayerMovement : MonoBehaviour
             anim._animRun = false; // Disable the run animation
         }
     }
-        private void RotatePlayer(Vector3 point)
-        {
-        transform.LookAt(point); // Rotate the player to look at the new targetDirection
-        }
-    }
+}
