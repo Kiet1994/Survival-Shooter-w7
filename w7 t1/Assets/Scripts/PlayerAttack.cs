@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform pointA;
     [SerializeField] private float cdAttack;// 0,2
     [SerializeField] private float timeAtk;
+    [SerializeField] public int damagePerShot = 1;
     private ParticleSystem gunAnimation;
     private AudioSource gunAudio;
     public LineRenderer gunLine;
@@ -33,6 +34,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (Physics.Raycast(shootRay, out shootHit, 100, coliderMask))
         {
+            EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)//
+            {
+                Debug.Log("Ban trung");
+                enemyHealth.TakeDamage(damagePerShot);
+            }
             gunLine.SetPosition(1, shootHit.point);//1. vi tri tia den
         }
         else
@@ -45,10 +52,8 @@ public class PlayerAttack : MonoBehaviour
      }
     private IEnumerator TurnOff()
     {
-        {
-            yield return new WaitForSeconds(cdAttack-0.17f);
-            gunLine.enabled = false;
-        }
+        yield return new WaitForSeconds(cdAttack-0.17f);
+        gunLine.enabled = false;        
     }
 
     private void Update()

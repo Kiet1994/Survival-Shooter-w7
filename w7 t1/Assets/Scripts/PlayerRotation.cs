@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
-    [SerializeField] private float maxDistance;
+
     private Camera cam;
     public Vector3 point;
     private Rigidbody playerRigidbody;
