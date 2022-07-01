@@ -29,8 +29,8 @@ public class PlayerAttack : MonoBehaviour
 
         gunLine.SetPosition(0, transform.position);//0. vi tri ban dau
 
-        shootRay.origin = transform.position;
-        shootRay.direction = transform.forward;
+        shootRay.origin = transform.position;// vị trí bắt đầu tia chiếu
+        shootRay.direction = transform.forward;// hướng thẳng theo trục z
 
         if (Physics.Raycast(shootRay, out shootHit, 100, coliderMask))
         {

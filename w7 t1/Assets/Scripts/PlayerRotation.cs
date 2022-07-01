@@ -27,7 +27,7 @@ public class PlayerRotation : MonoBehaviour
         {
             if (hitInfo.collider) //not-null if it hit a Collider.
             {
-                //point = hitInfo.point; //The impact point in world space where the ray hit the collider.
+                point = hitInfo.point; //cần điểm này cho pet
                 Vector3 playerToMouse = hitInfo.point - transform.position;//
                 playerToMouse.y = 0f;
 
