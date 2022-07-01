@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
             if (enemyHealth != null)//
             {
                 Debug.Log("Ban trung");
-                enemyHealth.TakeDamage(damagePerShot);
+                enemyHealth.TakeDamage(damagePerShot, shootHit.point);//vị trí bắn vàn
             }
             gunLine.SetPosition(1, shootHit.point);//1. vi tri tia den
         }

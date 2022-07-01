@@ -55,7 +55,7 @@ public class EnemyAttack : MonoBehaviour
             Attack ();// thực hiện atk           
         }
 
-        if(playerHealth.CurrentHealth <= 0)
+        if(playerHealth.currentHealth <= 0)
         {
             anim.SetTrigger ("PlayerDead"); //idle enemy
         }
@@ -66,7 +66,7 @@ public class EnemyAttack : MonoBehaviour
     {
         timer = 0f;//reset thời gian. nếu lớn hơn 1 thì thực hiện tiếp
 
-        if(playerHealth.CurrentHealth > 0)
+        if(playerHealth.currentHealth > 0)
         {
             playerHealth.TakeDamage (attackDamage);
         }

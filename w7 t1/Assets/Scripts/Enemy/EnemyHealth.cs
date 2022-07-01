@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {   
@@ -10,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public Transform HealthBar;
     float ScaleHealthBar;
 
+    ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
     SphereCollider sphereCollider;
     Animator anim;
@@ -18,6 +20,8 @@ public class EnemyHealth : MonoBehaviour
 
     [SerializeField] private Material color;
 
+    [SerializeField] private int addScore;
+    Score updateScore;
 
     void Awake()
     {
@@ -26,16 +30,19 @@ public class EnemyHealth : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         anim = GetComponent<Animator>();
         enemyAudio = GetComponent<AudioSource>();
-        sphereCollider = GetComponent<SphereCollider>();
-
-
+        sphereCollider = GetComponent<SphereCollider>();       
+        updateScore = FindObjectOfType<Score>();
+        hitParticles = GetComponentInChildren<ParticleSystem>();
     }
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, Vector3 hitPoint)
     {
         color.color = Color.red;
         enemyAudio.Play();
-        currentHealth -= amount;
 
+        hitParticles.transform.position = hitPoint;
+        hitParticles.Play();
+
+        currentHealth -= amount;
         HealthBar.localScale = new Vector3(currentHealth * ScaleHealthBar / startingHealth, HealthBar.localScale.y, HealthBar.localScale.z);
 
         if (currentHealth <= 0)
@@ -45,7 +52,7 @@ public class EnemyHealth : MonoBehaviour
         }
         StartCoroutine(ColorPlayer());
     }
-    void Death()
+    public void Death()
     {
         anim.SetTrigger("Dead");
         Destroy(gameObject, 2f);
@@ -53,6 +60,7 @@ public class EnemyHealth : MonoBehaviour
         sphereCollider.enabled = false;
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
+        updateScore.ScoreUpdate(addScore);
     }
 
     private IEnumerator ColorPlayer()
