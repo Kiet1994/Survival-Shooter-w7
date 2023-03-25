@@ -325,7 +325,9 @@ MonoBehaviour:
   startingHealth: 10
   HealthBar: {fileID: 9090202020670641118}
   deathClip: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
-  color: {fileID: 2100000, guid: 20c2c861010d0ce49a4716087f02535e, type: 2}
+  skinnedMeshRenderer: {fileID: 9090202019363196691}
+  originalMaterial: {fileID: 2100000, guid: 20c2c861010d0ce49a4716087f02535e, type: 2}
+  hitMaterial: {fileID: 2100000, guid: f9adbd2d9f1f427419b9ed478f1a430b, type: 2}
   addScore: 2
 --- !u!135 &1791258596054802290
 SphereCollider:

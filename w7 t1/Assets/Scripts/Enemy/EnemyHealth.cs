@@ -18,9 +18,11 @@ public class EnemyHealth : MonoBehaviour
     AudioSource enemyAudio;
     public AudioClip deathClip;
 
-    [SerializeField] private Material color;
-
+    [SerializeField] private SkinnedMeshRenderer skinnedMeshRenderer;
+    [SerializeField] private Material originalMaterial;
+    [SerializeField] private Material hitMaterial;
     [SerializeField] private int addScore;
+
     Score updateScore;
 
     void Awake()
@@ -36,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public void TakeDamage(int amount, Vector3 hitPoint)
     {
-        color.color = Color.red;
+        skinnedMeshRenderer.material = hitMaterial;
         enemyAudio.Play();
 
         hitParticles.transform.position = hitPoint;
@@ -66,6 +68,6 @@ public class EnemyHealth : MonoBehaviour
     private IEnumerator ColorPlayer()
     {
         yield return new WaitForSeconds(0.03f);
-        color.color = Color.white;
+        skinnedMeshRenderer.material = originalMaterial;
     }
 }
