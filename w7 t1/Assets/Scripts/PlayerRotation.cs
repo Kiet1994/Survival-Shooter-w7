@@ -6,9 +6,10 @@ public class PlayerRotation : MonoBehaviour
 {
 
     private Camera cam;
-    public Vector3 point;
+    private Vector3 point;
+	public Vector3 Point { get => point; private set => point = value;}
     private Rigidbody playerRigidbody;
-    public int floorMask;
+    private int floorMask;
 
     private void Awake()
     {

@@ -12,7 +12,7 @@ public class PetShoot : MonoBehaviour
     int coliderMask;//layer muốn phát hiện
     Ray shootRay = new Ray();
     RaycastHit shootHit;
-    PlayerRotation playerRotation;
+    private PlayerRotation playerRotation;
     private void Awake()
     {
         playerRotation = GetComponentInParent<PlayerRotation>();
@@ -22,7 +22,7 @@ public class PetShoot : MonoBehaviour
     }
     private void Update()
     {
-        transform.LookAt(playerRotation.point);// lấy vị trí chiếu từ camera tới chuột
+        transform.LookAt(playerRotation.Point);// lấy vị trí chiếu từ camera tới chuột
         timeAtk += Time.deltaTime;
 
         if (Input.GetButton("Fire1") & timeAtk >= cdAttack)

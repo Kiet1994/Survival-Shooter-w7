@@ -4,7 +4,7 @@ using System.Collections;
 public class CharacterAnimation : MonoBehaviour {
 
 	// Public boolean for running animation
-	public bool _animRun;
+	[HideInInspector] public bool _animRun;
 	
 	// Animator variables
 	private Animator anim;
