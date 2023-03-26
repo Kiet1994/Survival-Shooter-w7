@@ -247,9 +247,9 @@ Rigidbody:
   m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!136 &6282117534621790290
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -260,10 +260,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35
-  m_Height: 1.1
+  m_Radius: 0.5
+  m_Height: 1.2
   m_Direction: 1
-  m_Center: {x: 0.33, y: 0.5, z: 0}
+  m_Center: {x: 0.2, y: 0.6, z: 0}
 --- !u!114 &6282117534621790289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c98be9bf9f399d42a0e973ef72105c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
 --- !u!114 &6232218429969898890
 MonoBehaviour:
   m_ObjectHideFlags: 0
